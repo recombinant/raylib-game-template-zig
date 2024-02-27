@@ -19,6 +19,7 @@ The original code is written in C. This code was manually translated to [zig](ht
   - deinit() *where applicable*
   - update()
   - draw()
+- the screen instances are held in a [tagged union](https://ziglang.org/documentation/master/#Tagged-union)
 - there are no zig tests
 - developed and run on Microsoft Windows 11 only
 
@@ -28,6 +29,8 @@ Both zig and raylib used for this project are development versions - primarily b
 
 - zig `0.12.0-dev.3033`
 - raylib master branch dated 27 February 2024
+
+Please don't be surprised if the project does not compile without tweaking - this is not set up for the unwary.
 
 ## to run
 

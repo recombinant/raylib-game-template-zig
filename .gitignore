@@ -1,0 +1,7 @@
+# zig build files
+zig-cache
+zig-out
+
+# raylib sources
+raylib
+raygui
