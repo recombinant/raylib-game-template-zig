@@ -1,3 +1,7 @@
+// The code in this file is translated from https://github.com/raysan5/raylib-game-template
+
+// Header comments from original source code:
+
 // ----------------------------------------------------------------------------
 //
 // raylib - Advanced Game template
