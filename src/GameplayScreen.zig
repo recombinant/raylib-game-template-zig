@@ -28,6 +28,9 @@
 // ----------------------------------------------------------------------------
 const rl = @import("rl.zig");
 
+const screen_width = @import("constants.zig").screen_width;
+const screen_height = @import("constants.zig").screen_height;
+
 const Self = @This();
 
 const FinishScreen = enum { unfinished, ending, title };
@@ -73,7 +76,7 @@ pub fn update(self: *Self) void {
 /// Gameplay Screen Draw logic
 pub fn draw(self: *const Self) void {
     // TODO: Draw GAMEPLAY screen here!
-    rl.DrawRectangle(0, 0, rl.GetScreenWidth(), rl.GetScreenHeight(), rl.PURPLE);
+    rl.DrawRectangle(0, 0, screen_width, screen_height, rl.PURPLE);
     const pos = rl.Vector2{ .x = 20, .y = 10 };
     rl.DrawTextEx(self.font, "GAMEPLAY SCREEN", pos, @floatFromInt(self.font.baseSize * 3), 4, rl.MAROON);
     rl.DrawText("PRESS ENTER or TAP to JUMP to ending SCREEN", 130, 220, 20, rl.MAROON);

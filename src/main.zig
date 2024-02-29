@@ -16,11 +16,10 @@
 //
 // ----------------------------------------------------------------------------
 const Game = @import("Game.zig");
-
 const rl = @import("rl.zig");
 
-const screen_width = 800;
-const screen_height = 450;
+const screen_width = @import("constants.zig").screen_width;
+const screen_height = @import("constants.zig").screen_height;
 
 pub fn main() void {
     rl.InitWindow(screen_width, screen_height, "raylib game template");

@@ -28,6 +28,9 @@
 // ----------------------------------------------------------------------------
 const rl = @import("rl.zig");
 
+const screen_width = @import("constants.zig").screen_width;
+const screen_height = @import("constants.zig").screen_height;
+
 const Self = @This();
 
 const LogoAnimationState = enum { BlinkingSquare, BarsNW, BarsSE, Raylib, Finished };
@@ -61,8 +64,8 @@ pub fn init() Self {
         .frames_counter = 0,
         .letters_count = 0,
 
-        .logo_x = @divTrunc(rl.GetScreenWidth(), 2) - 128,
-        .logo_y = @divTrunc(rl.GetScreenHeight(), 2) - 128,
+        .logo_x = @divTrunc(screen_width, 2) - 128,
+        .logo_y = @divTrunc(screen_height, 2) - 128,
 
         .top_side_rec_width = 16,
         .left_side_rec_height = 16,
@@ -163,8 +166,8 @@ pub fn draw(self: *const Self) void {
             rl.DrawRectangle(self.logo_x + 240, self.logo_y + 16, 16, self.right_side_rec_height - 32, rl.Fade(rl.BLACK, self.alpha));
             rl.DrawRectangle(self.logo_x, self.logo_y + 240, self.bottom_side_rec_width, 16, rl.Fade(rl.BLACK, self.alpha));
 
-            const center_x = @divTrunc(rl.GetScreenWidth(), 2);
-            const center_y = @divTrunc(rl.GetScreenHeight(), 2);
+            const center_x = @divTrunc(screen_width, 2);
+            const center_y = @divTrunc(screen_height, 2);
             rl.DrawRectangle(center_x - 112, center_y - 112, 224, 224, rl.Fade(rl.RAYWHITE, self.alpha));
 
             rl.DrawText(rl.TextSubtext("raylib", 0, self.letters_count), center_x - 44, center_y + 48, 50, rl.Fade(rl.BLACK, self.alpha));

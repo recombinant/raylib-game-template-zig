@@ -28,6 +28,9 @@
 // ----------------------------------------------------------------------------
 const rl = @import("rl.zig");
 
+const screen_width = @import("constants.zig").screen_width;
+const screen_height = @import("constants.zig").screen_height;
+
 const ScreenTag = @import("screen.zig").ScreenTag;
 
 const Self = @This();
@@ -79,8 +82,8 @@ pub fn draw(self: Self) void {
     rl.DrawRectangle(
         0,
         0,
-        rl.GetScreenWidth(),
-        rl.GetScreenHeight(),
+        screen_width,
+        screen_height,
         rl.Fade(rl.BLACK, self.alpha),
     );
 }
