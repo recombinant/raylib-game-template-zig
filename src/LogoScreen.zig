@@ -33,7 +33,7 @@ const screen_height = @import("constants.zig").screen_height;
 
 const Self = @This();
 
-const LogoAnimationState = enum { BlinkingSquare, BarsNW, BarsSE, Raylib, Finished };
+const LogoAnimationState = enum { blinking_square, bars_top_left, bars_bottom_right, raylib, finished };
 
 //----------------------------------------------------------------------------------
 // Module Variables Definition (local)
@@ -72,7 +72,7 @@ pub fn init() Self {
         .bottom_side_rec_width = 16,
         .right_side_rec_height = 16,
 
-        .logo_animation_state = .BlinkingSquare,
+        .logo_animation_state = .blinking_square,
         .alpha = 1.0,
     };
 }
@@ -86,33 +86,33 @@ pub fn deinit(self: *Self) void {
 /// Logo Screen Update logic
 pub fn update(self: *Self) void {
     switch (self.logo_animation_state) {
-        .BlinkingSquare => {
-            // BlinkingSquare state: Top-left square corner blink logic
+        .blinking_square => {
+            // blinking_square state: Top-left square corner blink logic
             self.frames_counter += 1;
 
             if (self.frames_counter == 80) {
-                self.logo_animation_state = .BarsNW;
+                self.logo_animation_state = .bars_top_left;
                 self.frames_counter = 0; // Reset counter... will be used later...
             }
         },
-        .BarsNW => {
-            // BarsNW state: Bars animation logic: top and left
+        .bars_top_left => {
+            // bars_top_left state: Bars animation logic: top and left
             self.top_side_rec_width += 8;
             self.left_side_rec_height += 8;
 
             if (self.top_side_rec_width == 256)
-                self.logo_animation_state = .BarsSE;
+                self.logo_animation_state = .bars_bottom_right;
         },
-        .BarsSE => {
-            // BarsSE state: Bars animation logic: bottom and right
+        .bars_bottom_right => {
+            // bars_bottom_right state: Bars animation logic: bottom and right
             self.bottom_side_rec_width += 8;
             self.right_side_rec_height += 8;
 
             if (self.bottom_side_rec_width == 256)
-                self.logo_animation_state = .Raylib;
+                self.logo_animation_state = .raylib;
         },
-        .Raylib => {
-            // Raylib state: "raylib" text-write animation logic
+        .raylib => {
+            // raylib state: "raylib" text-write animation logic
             self.frames_counter += 1;
 
             if (self.letters_count < 10) {
@@ -128,29 +128,29 @@ pub fn update(self: *Self) void {
 
                     if (self.alpha <= 0.0) {
                         self.alpha = 0.0;
-                        self.logo_animation_state = .Finished; // Jump to next screen
+                        self.logo_animation_state = .finished; // Jump to next screen
                     }
                 }
             }
         },
-        .Finished => {},
+        .finished => {},
     }
 }
 
 /// Logo Screen Draw logic
 pub fn draw(self: *const Self) void {
     switch (self.logo_animation_state) {
-        .BlinkingSquare => {
+        .blinking_square => {
             // Draw blinking top-left square corner
             if ((self.frames_counter / 10) % 2 != 0)
                 rl.DrawRectangle(self.logo_x, self.logo_y, 16, 16, rl.BLACK);
         },
-        .BarsNW => {
+        .bars_top_left => {
             // Draw bars animation: top and left
             rl.DrawRectangle(self.logo_x, self.logo_y, self.top_side_rec_width, 16, rl.BLACK);
             rl.DrawRectangle(self.logo_x, self.logo_y, 16, self.left_side_rec_height, rl.BLACK);
         },
-        .BarsSE => {
+        .bars_bottom_right => {
             // Draw bars animation: bottom and right
             rl.DrawRectangle(self.logo_x, self.logo_y, self.top_side_rec_width, 16, rl.BLACK);
             rl.DrawRectangle(self.logo_x, self.logo_y, 16, self.left_side_rec_height, rl.BLACK);
@@ -158,7 +158,7 @@ pub fn draw(self: *const Self) void {
             rl.DrawRectangle(self.logo_x + 240, self.logo_y, 16, self.right_side_rec_height, rl.BLACK);
             rl.DrawRectangle(self.logo_x, self.logo_y + 240, self.bottom_side_rec_width, 16, rl.BLACK);
         },
-        .Raylib, .Finished => {
+        .raylib, .finished => {
             // Draw "raylib" text-write animation + "powered by"
             rl.DrawRectangle(self.logo_x, self.logo_y, self.top_side_rec_width, 16, rl.Fade(rl.BLACK, self.alpha));
             rl.DrawRectangle(self.logo_x, self.logo_y + 16, 16, self.left_side_rec_height - 32, rl.Fade(rl.BLACK, self.alpha));
@@ -180,5 +180,5 @@ pub fn draw(self: *const Self) void {
 
 /// Logo Screen should finish?
 pub fn isFinished(self: *const Self) bool {
-    return self.logo_animation_state == .Finished;
+    return self.logo_animation_state == .finished;
 }
