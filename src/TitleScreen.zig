@@ -33,12 +33,12 @@ const screen_height = @import("constants.zig").screen_height;
 
 const Self = @This();
 
-const FinishScreen = enum { unfinished, options, gameplay };
+const ScreenState = enum { unfinished, options, gameplay };
 
 //----------------------------------------------------------------------------------
 // Module Variables Definition (local)
 //----------------------------------------------------------------------------------
-finish_screen: FinishScreen,
+state: ScreenState,
 fx_coin: rl.Sound,
 font: rl.Font,
 
@@ -50,7 +50,7 @@ font: rl.Font,
 pub fn init(fx_coin: rl.Sound, font: rl.Font) Self {
     // TODO: Initialize TITLE screen variables here!
     return Self{
-        .finish_screen = .unfinished,
+        .state = .unfinished,
         .fx_coin = fx_coin,
         .font = font,
     };
@@ -68,8 +68,8 @@ pub fn update(self: *Self) void {
 
     // Press enter or tap to change to gameplay screen
     if (rl.IsKeyPressed(rl.KEY_ENTER) or rl.IsGestureDetected(rl.GESTURE_TAP)) {
-        //finish_screen = .OPTIONS;
-        self.finish_screen = .gameplay;
+        // self.state = .options;
+        self.state = .gameplay;
         rl.PlaySound(self.fx_coin);
     }
 }
@@ -84,6 +84,6 @@ pub fn draw(self: *const Self) void {
 }
 
 /// Title Screen should finish?
-pub fn getNextScreen(self: *const Self) FinishScreen {
-    return self.finish_screen;
+pub fn getNextScreen(self: *const Self) ScreenState {
+    return self.state;
 }
