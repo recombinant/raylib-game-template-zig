@@ -1,0 +1,7 @@
+0
+147600 18858823439753970 1728376568355280800 df0f7cceb0056750caa5ee6759f3452a 0 C:\Projects\raylib-game-template-zig\raylib\src\rcore.c
+20792 7318349394579632 1728486416842865700 52f5b61ad7d3176cf2768f1c4826a58d 0 C:\Projects\raylib-game-template-zig\raylib\src\utils.c
+109531 16888498602779112 1724456253742362400 ee9959b177e68ab9026d95f63e5cffa2 0 C:\Projects\raylib-game-template-zig\raylib\src\raudio.c
+102666 7881299348059111 1727077792268139600 aa63608d0d62121e1dcebb00f19a95bf 0 C:\Projects\raylib-game-template-zig\raylib\src\rtext.c
+223784 26740122787566105 1728656694544929800 7f94113f9274598901c36c65930d6d80 0 C:\Projects\raylib-game-template-zig\raylib\src\rtextures.c
+6000 9851624185305582 1710493898576306700 e296227aab36a7f1bcbea65e8507b972 0 C:\Projects\raylib-game-template-zig\raylib\src\rglfw.c

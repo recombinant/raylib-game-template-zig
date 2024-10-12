@@ -1,0 +1,3 @@
+0
+774 32088147345403274 1709068492070443400 6ac0f65616155dfd36fb042c1fe19362 0 C:\Projects\raylib-game-template-zig\src\raylib_game.rc
+9752 17169973579738287 1704287921000000000 e86a789de9636d30d1ef3dfdb1c1d153 0 C:\Projects\raylib-game-template-zig\src\raylib.ico
