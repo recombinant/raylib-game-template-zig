@@ -27,8 +27,8 @@ The original code is written in C. This code was manually translated to [zig](ht
 
 Both zig and raylib used for this project are development versions - primarily because zig is being heavily developed and raylib tracks changes in it's zig build.
 
-- zig `0.12.0-dev.3033`
-- raylib master branch dated 27 February 2024
+- zig `0.14.0-dev.2034`
+- raylib master branch dated 25 October 2024
 
 Please don't be surprised if the project does not compile without tweaking - this is not set up for the unwary.
 

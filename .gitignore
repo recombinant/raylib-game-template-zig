@@ -5,3 +5,6 @@ zig-out
 # raylib sources
 raylib
 raygui
+
+#
+.idea
