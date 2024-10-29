@@ -4,6 +4,14 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
+    const raylib = try @import("raylib").addRaylib(b, target, optimize, .{
+        .raudio = true,
+        .rmodels = false,
+        .rshapes = true,
+        .rtext = true,
+        .rtextures = true,
+    });
+
     const exe = b.addExecutable(.{
         .name = "raylib-game-template-main",
         .root_source_file = b.path("src/main.zig"),
@@ -11,18 +19,9 @@ pub fn build(b: *std.Build) !void {
         .optimize = optimize,
         .link_libc = true,
     });
+    exe.linkLibrary(raylib);
 
     exe.addWin32ResourceFile(.{ .file = b.path("src/raylib_game.rc"), .flags = &.{} });
-
-    const raylib_dep = b.dependency("raylib", .{
-        .raudio = true,
-        .rmodels = false,
-        .rshapes = true,
-        .rtext = true,
-        .rtextures = true,
-    });
-    const raylib = raylib_dep.artifact("raylib");
-    exe.linkLibrary(raylib);
 
     b.installArtifact(exe);
 
