@@ -7,7 +7,7 @@
     // This field is optional.
     // This is currently advisory only; Zig does not yet do anything
     // with this value.
-    //.minimum_zig_version = "0.11.0",
+    .minimum_zig_version = "0.13.0",
 
     // This field is optional.
     // Each dependency must either provide a `url` and `hash`, or a `path`.
@@ -15,23 +15,15 @@
     // Once all dependencies are fetched, `zig build` no longer requires
     // internet connectivity.
     .dependencies = .{
-        .raylib = .{
-            //    .url = "https://example.com/foo.tar.gz",
-            //    .hash = "...",
+        // Raylib 5.0 does not have build.zig.zon, therefore use
+        // the latest master branch current at the time of writing.
 
-            // When this is provided, the package is found in a directory relative to the
-            // build root. In this case the package's hash is irrelevant and therefore not
-            // computed. This field and `url` are mutually exclusive.
-            .path = "raylib",
+        // zig fetch --save https://github.com/raysan5/raylib/archive/refs/heads/master.tar.gz
+        .raylib = .{
+            .url = "https://github.com/raysan5/raylib/archive/refs/heads/master.tar.gz",
+            .hash = "1220eb09ded36376449dc82f259286d0ad17440081117e36bb41604504a0c0ac19c3",
         },
     },
-
-    // Specifies the set of files and directories that are included in this package.
-    // Only files and directories listed here are included in the `hash` that
-    // is computed for this package.
-    // Paths are relative to the build root. Use the empty string (`""`) to refer to
-    // the build root itself.
-    // A directory listed here means that all files within, recursively, are included.
     .paths = .{
         // This makes *all* files, recursively, included in this package. It is generally
         // better to explicitly list the files and directories instead, to insure that
