@@ -15,13 +15,11 @@
     // Once all dependencies are fetched, `zig build` no longer requires
     // internet connectivity.
     .dependencies = .{
-        // Raylib 5.0 does not have build.zig.zon, therefore use
-        // the latest master branch current at the time of writing.
-
-        // zig fetch --save https://github.com/raysan5/raylib/archive/refs/heads/master.tar.gz
+        // Raylib 5.5 is good enough...
+        // zig fetch --save https://github.com/raysan5/raylib/archive/refs/tags/5.5.tar.gz
         .raylib = .{
-            .url = "https://github.com/raysan5/raylib/archive/refs/heads/master.tar.gz",
-            .hash = "1220eb09ded36376449dc82f259286d0ad17440081117e36bb41604504a0c0ac19c3",
+            .url = "https://github.com/raysan5/raylib/archive/refs/tags/5.5.tar.gz",
+            .hash = "1220d93782859726c2c46a05450615b7edfc82b7319daac50cbc7c3345d660b022d7",
         },
     },
     .paths = .{

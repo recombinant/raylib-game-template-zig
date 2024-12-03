@@ -17,7 +17,6 @@ pub fn build(b: *std.Build) !void {
         .rshapes = true,
         .rtext = true,
         .rtextures = true,
-        .raygui = false,
     });
     exe.linkLibrary(raylib.artifact("raylib"));
 
