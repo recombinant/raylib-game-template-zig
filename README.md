@@ -25,7 +25,7 @@ The original code is written in C. This code was manually translated to [zig](ht
 
 ## zig and raylib versions
 
-- zig `0.14.0-dev.2273`
+- zig `0.13.0` (June 2024)
 - raylib 5.5 (November 2024)
 
 Please don't be surprised if the project does not compile without tweaking - this is not set up for the unwary.
