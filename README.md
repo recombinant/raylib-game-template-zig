@@ -25,8 +25,8 @@ The original code is written in C. This code was manually translated to [zig](ht
 
 ## zig and raylib versions
 
-- zig `0.14.0` (March 2025)
-- raylib dev (March 2025)
+- `zig-0.15.0-dev.515` (May 2025)
+- raylib dev (May 2025)
 
 Please don't be surprised if the project does not compile without tweaking - this is not set up for the unwary.
 
