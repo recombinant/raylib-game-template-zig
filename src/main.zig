@@ -16,7 +16,7 @@
 //
 // ----------------------------------------------------------------------------
 const Game = @import("Game.zig");
-const rl = @import("rl.zig");
+const rl = @import("rl.zig").rl;
 
 const screen_width = @import("constants.zig").screen_width;
 const screen_height = @import("constants.zig").screen_height;

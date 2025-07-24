@@ -10,8 +10,8 @@
     // zig fetch --save "git+https://github.com/raysan5/raylib"
     .dependencies = .{
         .raylib = .{
-            .url = "git+https://github.com/raysan5/raylib#63b988ade906adc7264a8bec8fccec5f47befb55",
-            .hash = "raylib-5.5.0-whq8uFC6NATKhPcxhN4iZkuvJ_2Vv3J5xW9OTnHsWM7z",
+            .url = "git+https://github.com/raysan5/raylib#9a042bc9adfe69a3d6881978576c0f12a2d0a466",
+            .hash = "raylib-5.5.0-whq8uOhBPwTwFPAbTf2Liv5aLJN_dYt-n1tQOxzfvFEK",
         },
     },
     .paths = .{

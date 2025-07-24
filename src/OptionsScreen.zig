@@ -26,7 +26,7 @@
 //    3. This notice may not be removed or altered from any source distribution.
 //
 // ----------------------------------------------------------------------------
-const rl = @import("rl.zig");
+const rl = @import("rl.zig").rl;
 
 const Self = @This();
 
