@@ -21,9 +21,9 @@ pub fn build(b: *std.Build) !void {
         .rtext = true,
         .rtextures = true,
     });
-    exe.linkLibrary(raylib.artifact("raylib"));
+    exe.root_module.linkLibrary(raylib.artifact("raylib"));
 
-    exe.addWin32ResourceFile(.{ .file = b.path("src/raylib_game.rc"), .flags = &.{} });
+    exe.root_module.addWin32ResourceFile(.{ .file = b.path("src/raylib_game.rc"), .flags = &.{} });
 
     b.installArtifact(exe);
 
