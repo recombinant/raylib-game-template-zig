@@ -65,14 +65,14 @@ pub fn init() Self {
     rl.PlayMusicStream(music);
 
     // Setup and init first screen
-    const current_screen = Screen{ .logo = LogoScreen.init() };
+    const current_screen: Screen = .{ .logo = LogoScreen.init() };
 
     return Self{
         .font = font,
         .music = music,
         .fx_coin = fx_coin,
         .current_screen = current_screen,
-        .transition = Transition.init(.unknown),
+        .transition = .init(.unknown),
     };
 }
 
@@ -102,7 +102,7 @@ pub fn update(self: *Self) void {
                 logo_screen.update();
 
                 if (logo_screen.isFinished()) {
-                    self.transition = Transition.init(.title);
+                    self.transition = .init(.title);
                     //   or for instant change without transition
                     // self.changeToScreen(.title);
                 }
@@ -111,29 +111,29 @@ pub fn update(self: *Self) void {
                 title_screen.update();
 
                 if (title_screen.getNextScreen() == .options)
-                    self.transition = Transition.init(.options)
+                    self.transition = .init(.options)
                 else if (title_screen.getNextScreen() == .gameplay)
-                    self.transition = Transition.init(.gameplay);
+                    self.transition = .init(.gameplay);
             },
             .options => |*options_screen| {
                 options_screen.update();
 
                 if (options_screen.isFinished())
-                    self.transition = Transition.init(.title);
+                    self.transition = .init(.title);
             },
             .gameplay => |*gameplay_screen| {
                 gameplay_screen.update();
 
                 if (gameplay_screen.getNextScreen() == .ending)
-                    self.transition = Transition.init(.ending);
+                    self.transition = .init(.ending);
                 // else if (gameplay_screen.getNextScreen() == .title)
-                //     self.transition = Transition.init(.title);
+                //     self.transition = .init(.title);
             },
             .ending => |*ending_screen| {
                 ending_screen.update();
 
                 if (ending_screen.getNextScreen() == .title)
-                    self.transition = Transition.init(.title);
+                    self.transition = .init(.title);
             },
 
             .unknown => unreachable,
