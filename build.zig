@@ -4,15 +4,15 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const exe = b.addExecutable(
-        .{ .name = "raylib-game-template-main", .root_module = b.createModule(
-            .{
-                .root_source_file = b.path("src/main.zig"),
-                .target = target,
-                .optimize = optimize,
-            },
-        ) },
-    );
+    const exe_mod = b.createModule(.{
+        .root_source_file = b.path("src/main.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+    const exe = b.addExecutable(.{
+        .name = "raylib-game-template-main",
+        .root_module = exe_mod,
+    });
 
     const raylib = b.dependency("raylib", .{
         .raudio = true,
@@ -21,9 +21,10 @@ pub fn build(b: *std.Build) !void {
         .rtext = true,
         .rtextures = true,
     });
-    exe.root_module.linkLibrary(raylib.artifact("raylib"));
+    exe_mod.linkLibrary(raylib.artifact("raylib"));
 
-    exe.root_module.addWin32ResourceFile(.{ .file = b.path("src/raylib_game.rc"), .flags = &.{} });
+    if (target.result.os.tag == .windows)
+        exe_mod.addWin32ResourceFile(.{ .file = b.path("src/raylib_game.rc"), .flags = &.{} });
 
     b.installArtifact(exe);
 
