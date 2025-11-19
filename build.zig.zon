@@ -5,13 +5,13 @@
     .fingerprint = 0xcf3114f0bc328fed,
 
     // Raylib 5.5 is out of date for Zig 0.14.0 and later.
-    // zig fetch --save https://github.com/raysan5/raylib/archive/refs/tags/5.5.tar.gz
+    // Use the master branch...
 
     // zig fetch --save "git+https://github.com/raysan5/raylib"
     .dependencies = .{
         .raylib = .{
-            .url = "git+https://github.com/raysan5/raylib#ad17af57e928c61e8e29d2f6c74962c249adf36d",
-            .hash = "raylib-5.6.0-dev-whq8uMxuAQVqfRCWapjRvoS4TxxvQ1mwb0pWTh5dmm_R",
+            .url = "git+https://github.com/raysan5/raylib#8081d2bd076ed39dbe9f32c1dae6c82ee78bd9e4",
+            .hash = "raylib-5.6.0-dev-whq8uH-KBgW1wOiSz6iBDVuFqmB9roBEslDMHpuCstVq",
         },
     },
     .paths = .{
