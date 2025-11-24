@@ -22,6 +22,9 @@ pub fn build(b: *std.Build) !void {
         .rtextures = true,
     });
     exe_mod.linkLibrary(raylib.artifact("raylib"));
+    exe_mod.addAnonymousImport("mecha.png", .{ .root_source_file = b.path("assets/mecha.png") });
+    exe_mod.addAnonymousImport("ambient.ogg", .{ .root_source_file = b.path("assets/ambient.ogg") });
+    exe_mod.addAnonymousImport("coin.wav", .{ .root_source_file = b.path("assets/coin.wav") });
 
     if (target.result.os.tag == .windows)
         exe_mod.addWin32ResourceFile(.{ .file = b.path("src/raylib_game.rc"), .flags = &.{} });

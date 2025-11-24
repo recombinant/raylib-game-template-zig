@@ -49,14 +49,14 @@ current_screen: Screen,
 transition: Transition,
 
 pub fn init() Self {
-    const image_data = @embedFile("resources/mecha.png");
+    const image_data = @embedFile("mecha.png");
     const image = rl.LoadImageFromMemory(".png", image_data, @intCast(image_data.len));
     const font = rl.LoadFontFromImage(image, rl.MAGENTA, FONT_TTF_DEFAULT_FIRST_CHAR);
 
-    const music_data = @embedFile("resources/ambient.ogg");
+    const music_data = @embedFile("ambient.ogg");
     const music = rl.LoadMusicStreamFromMemory(".ogg", music_data, @intCast(music_data.len));
 
-    const wave_data = @embedFile("resources/coin.wav");
+    const wave_data = @embedFile("coin.wav");
     const wave = rl.LoadWaveFromMemory(".wav", wave_data, @intCast(wave_data.len));
     defer rl.UnloadWave(wave);
     const fx_coin = rl.LoadSoundFromWave(wave);
