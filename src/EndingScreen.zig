@@ -78,7 +78,7 @@ pub fn draw(self: *const Self) void {
     // TODO: Draw ENDING screen here!
     rl.DrawRectangle(0, 0, screen_width, screen_height, rl.BLUE);
 
-    const pos = rl.Vector2{ .x = 20, .y = 10 };
+    const pos: rl.Vector2 = .{ .x = 20, .y = 10 };
     rl.DrawTextEx(self.font, "ENDING SCREEN", pos, @floatFromInt(self.font.baseSize * 3), 4, rl.DARKBLUE);
     rl.DrawText("PRESS ENTER or TAP to RETURN to TITLE SCREEN", 120, 220, 20, rl.DARKBLUE);
 }

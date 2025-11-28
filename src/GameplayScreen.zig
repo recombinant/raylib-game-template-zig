@@ -77,7 +77,7 @@ pub fn update(self: *Self) void {
 pub fn draw(self: *const Self) void {
     // TODO: Draw GAMEPLAY screen here!
     rl.DrawRectangle(0, 0, screen_width, screen_height, rl.PURPLE);
-    const pos = rl.Vector2{ .x = 20, .y = 10 };
+    const pos: rl.Vector2 = .{ .x = 20, .y = 10 };
     rl.DrawTextEx(self.font, "GAMEPLAY SCREEN", pos, @floatFromInt(self.font.baseSize * 3), 4, rl.MAROON);
     rl.DrawText("PRESS ENTER or TAP to JUMP to ending SCREEN", 130, 220, 20, rl.MAROON);
 }
