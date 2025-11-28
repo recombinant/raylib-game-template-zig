@@ -10,7 +10,7 @@ pub fn build(b: *std.Build) !void {
         .optimize = optimize,
     });
     const exe = b.addExecutable(.{
-        .name = "raylib-game-template-main",
+        .name = "raylib-game-template",
         .root_module = exe_mod,
     });
 
