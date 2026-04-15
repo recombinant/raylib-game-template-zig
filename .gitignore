@@ -1,6 +1,6 @@
-# zig build files Zig 0.13.0 and later
+# zig build files Zig 0.16.0 and later
 .zig-cache
-zig-cache
+zig-pkg
 zig-out
 
 # raylib sources
@@ -9,3 +9,4 @@ raygui
 
 #
 .idea
+.vscode

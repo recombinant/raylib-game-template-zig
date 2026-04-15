@@ -1,17 +1,16 @@
 .{
     .name = .raylib_game_template_main,
     .version = "0.0.0",
-    .minimum_zig_version = "0.15.2",
+    .minimum_zig_version = "0.16.0",
     .fingerprint = 0xcf3114f0bc328fed,
 
-    // Raylib 5.5 is out of date for Zig 0.14.0 and later.
-    // Use the master branch...
+    // Using raylib the master branch...
 
     // zig fetch --save "git+https://github.com/raysan5/raylib"
     .dependencies = .{
         .raylib = .{
-            .url = "git+https://github.com/raysan5/raylib#7e3d6cbfa880ac97638b8ef06235bd9a9022fdc9",
-            .hash = "raylib-5.6.0-dev-whq8uGaVBgXVxw-rALXB8fyxwBRx9loGZWlky-hLcyei",
+            .url = "git+https://github.com/raysan5/raylib#82e980bd42389d6fb2a2c34d093478709b38736b",
+            .hash = "raylib-6.0.0-whq8uLYtLgWU8QWycL5ZFUpd5uu_jP1A-R09mshkQg-d",
         },
     },
     .paths = .{
