@@ -7,10 +7,11 @@
     // Using raylib the master branch...
 
     // zig fetch --save "git+https://github.com/raysan5/raylib"
+    // zig fetch --save https://github.com/raysan5/raylib/archive/refs/tags/6.0.tar.gz
     .dependencies = .{
         .raylib = .{
-            .url = "git+https://github.com/raysan5/raylib#82e980bd42389d6fb2a2c34d093478709b38736b",
-            .hash = "raylib-6.0.0-whq8uLYtLgWU8QWycL5ZFUpd5uu_jP1A-R09mshkQg-d",
+            .url = "https://github.com/raysan5/raylib/archive/refs/tags/6.0.tar.gz",
+            .hash = "raylib-6.0.0-whq8uCSwLgWWeF3ec3dbG6Rr36SLFL-s2WJ1Q_2E22Bb",
         },
     },
     .paths = .{
