@@ -31,7 +31,7 @@ const rl = @import("rl.zig").rl;
 const screen_width = @import("constants.zig").screen_width;
 const screen_height = @import("constants.zig").screen_height;
 
-const Self = @This();
+const GameplayScreen = @This();
 
 const ScreenState = enum { unfinished, ending, title };
 
@@ -47,9 +47,9 @@ font: rl.Font,
 //----------------------------------------------------------------------------------
 
 /// Gameplay Screen Initialization logic
-pub fn init(fx_coin: rl.Sound, font: rl.Font) Self {
+pub fn init(fx_coin: rl.Sound, font: rl.Font) GameplayScreen {
     // TODO: Initialize GAMEPLAY screen variables here!
-    return Self{
+    return GameplayScreen{
         .state = .unfinished,
         .fx_coin = fx_coin,
         .font = font,
@@ -57,13 +57,13 @@ pub fn init(fx_coin: rl.Sound, font: rl.Font) Self {
 }
 
 /// Gameplay Screen Unload logic
-pub fn deinit(self: *Self) void {
+pub fn deinit(self: *GameplayScreen) void {
     // TODO: Unload GAMEPLAY screen variables here!
     _ = self;
 }
 
 /// Gameplay Screen Update logic
-pub fn update(self: *Self) void {
+pub fn update(self: *GameplayScreen) void {
     // TODO: Update GAMEPLAY screen variables here!
 
     // Press enter or tap to change to ENDING screen
@@ -74,7 +74,7 @@ pub fn update(self: *Self) void {
 }
 
 /// Gameplay Screen Draw logic
-pub fn draw(self: *const Self) void {
+pub fn draw(self: *const GameplayScreen) void {
     // TODO: Draw GAMEPLAY screen here!
     rl.DrawRectangle(0, 0, screen_width, screen_height, rl.PURPLE);
     const pos: rl.Vector2 = .{ .x = 20, .y = 10 };
@@ -83,6 +83,6 @@ pub fn draw(self: *const Self) void {
 }
 
 /// Gameplay Screen should finish?
-pub fn getNextScreen(self: *const Self) ScreenState {
+pub fn getNextScreen(self: *const GameplayScreen) ScreenState {
     return self.state;
 }

@@ -31,7 +31,7 @@ const rl = @import("rl.zig").rl;
 const screen_width = @import("constants.zig").screen_width;
 const screen_height = @import("constants.zig").screen_height;
 
-const Self = @This();
+const LogoScreen = @This();
 
 const LogoAnimationState = enum { blinking_square, bars_top_left, bars_bottom_right, raylib, finished };
 
@@ -59,8 +59,8 @@ alpha: f32, // Useful for fading
 //----------------------------------------------------------------------------------
 
 /// Logo Screen Initialization logic
-pub fn init() Self {
-    return Self{
+pub fn init() LogoScreen {
+    return LogoScreen{
         .frames_counter = 0,
         .letters_count = 0,
 
@@ -78,13 +78,13 @@ pub fn init() Self {
 }
 
 /// Logo Screen Unload logic
-pub fn deinit(self: *Self) void {
+pub fn deinit(self: *LogoScreen) void {
     _ = self;
     // Unload LOGO screen variables here!
 }
 
 /// Logo Screen Update logic
-pub fn update(self: *Self) void {
+pub fn update(self: *LogoScreen) void {
     switch (self.logo_animation_state) {
         .blinking_square => {
             // blinking_square state: Top-left square corner blink logic
@@ -138,7 +138,7 @@ pub fn update(self: *Self) void {
 }
 
 /// Logo Screen Draw logic
-pub fn draw(self: *const Self) void {
+pub fn draw(self: *const LogoScreen) void {
     switch (self.logo_animation_state) {
         .blinking_square => {
             // Draw blinking top-left square corner
@@ -179,6 +179,6 @@ pub fn draw(self: *const Self) void {
 }
 
 /// Logo Screen should finish?
-pub fn isFinished(self: *const Self) bool {
+pub fn isFinished(self: *const LogoScreen) bool {
     return self.logo_animation_state == .finished;
 }

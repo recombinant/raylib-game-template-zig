@@ -37,7 +37,7 @@ const Transition = @import("Transition.zig");
 const Screen = @import("screen.zig").Screen;
 const ScreenTag = @import("screen.zig").ScreenTag;
 
-const Self = @This();
+const Game = @This();
 
 const FONT_TTF_DEFAULT_FIRST_CHAR = 32;
 
@@ -48,7 +48,7 @@ music: rl.Music,
 current_screen: Screen,
 transition: Transition,
 
-pub fn init() Self {
+pub fn init() Game {
     const image_data = @embedFile("mecha.png");
     const image = rl.LoadImageFromMemory(".png", image_data, @intCast(image_data.len));
     const font = rl.LoadFontFromImage(image, rl.MAGENTA, FONT_TTF_DEFAULT_FIRST_CHAR);
@@ -67,7 +67,7 @@ pub fn init() Self {
     // Setup and init first screen
     const current_screen: Screen = .{ .logo = LogoScreen.init() };
 
-    return Self{
+    return Game{
         .font = font,
         .music = music,
         .fx_coin = fx_coin,
@@ -76,7 +76,7 @@ pub fn init() Self {
     };
 }
 
-pub fn deinit(self: *Self) void {
+pub fn deinit(self: *Game) void {
     // Unload current screen data before closing
     switch (self.current_screen) {
         .unknown => unreachable,
@@ -90,7 +90,7 @@ pub fn deinit(self: *Self) void {
 }
 
 /// Update and draw game frame
-pub fn update(self: *Self) void {
+pub fn update(self: *Game) void {
     rl.UpdateMusicStream(self.music); // NOTE: Music keeps playing between screens
 
     if (self.transition.active)
@@ -141,7 +141,7 @@ pub fn update(self: *Self) void {
     }
 }
 
-pub fn draw(self: *const Self) void {
+pub fn draw(self: *const Game) void {
     switch (self.current_screen) {
         .unknown => unreachable,
         inline else => |screen| screen.draw(),
@@ -160,7 +160,7 @@ pub fn draw(self: *const Self) void {
 /// when the transition is mid-way and everything is black.
 /// This can be called directly as a direct replacement transition.toScreen() to
 /// provide instant changes of screen without the transition fade out/fade in.
-pub fn changeToScreen(self: *Self, screen: ScreenTag) void {
+pub fn changeToScreen(self: *Game, screen: ScreenTag) void {
     // Unload current screen
     switch (self.current_screen) {
         .unknown => unreachable,

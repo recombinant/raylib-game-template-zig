@@ -33,7 +33,7 @@ const screen_height = @import("constants.zig").screen_height;
 
 const ScreenTag = @import("screen.zig").ScreenTag;
 
-const Self = @This();
+const Transition = @This();
 
 /// Required variables to manage screen transitions (fade-in, fade-out)
 active: bool,
@@ -44,7 +44,7 @@ to_screen: ScreenTag,
 /// Request transition to next screen.
 /// Change to next screen with smooth transition.
 /// Unless `screen` is .unknown when transition will be inactive.
-pub fn init(screen: ScreenTag) Self {
+pub fn init(screen: ScreenTag) Transition {
     return .{
         .active = (screen != .unknown),
         .alpha = 0,
@@ -54,7 +54,7 @@ pub fn init(screen: ScreenTag) Self {
 }
 
 /// Update transition effect (fade-in, fade-out)
-pub fn update(self: *Self, game: anytype) void {
+pub fn update(self: *Transition, game: anytype) void {
     if (self.fade_out) {
         self.alpha -= 0.02;
 
@@ -78,7 +78,7 @@ pub fn update(self: *Self, game: anytype) void {
 }
 
 /// Draw transition effect (full-screen rectangle)
-pub fn draw(self: Self) void {
+pub fn draw(self: Transition) void {
     rl.DrawRectangle(
         0,
         0,

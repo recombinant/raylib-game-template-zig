@@ -28,7 +28,7 @@
 // ----------------------------------------------------------------------------
 const rl = @import("rl.zig").rl;
 
-const Self = @This();
+const OptionScreen = @This();
 
 //----------------------------------------------------------------------------------
 // Module Variables Definition (local)
@@ -40,32 +40,32 @@ is_finished: bool,
 //----------------------------------------------------------------------------------
 
 /// Options Screen Initialization logic
-pub fn init() Self {
+pub fn init() OptionScreen {
     // TODO: Initialize OPTIONS screen variables here!
-    return Self{
+    return OptionScreen{
         .is_finished = false,
     };
 }
 
 /// Options Screen Unload logic
-pub fn deinit(self: *Self) void {
+pub fn deinit(self: *OptionScreen) void {
     _ = self;
     // TODO: Unload OPTIONS screen variables here!
 }
 
 /// Options Screen Update logic
-pub fn update(self: *Self) void {
+pub fn update(self: *OptionScreen) void {
     _ = self;
     // TODO: Update OPTIONS screen variables here!
 }
 
 /// Options Screen Draw logic
-pub fn draw(self: *const Self) void {
+pub fn draw(self: *const OptionScreen) void {
     _ = self;
     // TODO: Draw OPTIONS screen here!
 }
 
 /// Options Screen should finish?
-pub fn isFinished(self: *const Self) bool {
+pub fn isFinished(self: *const OptionScreen) bool {
     return self.is_finished;
 }

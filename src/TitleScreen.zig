@@ -31,7 +31,7 @@ const rl = @import("rl.zig").rl;
 const screen_width = @import("constants.zig").screen_width;
 const screen_height = @import("constants.zig").screen_height;
 
-const Self = @This();
+const TitleScreen = @This();
 
 const ScreenState = enum { unfinished, options, gameplay };
 
@@ -47,9 +47,9 @@ font: rl.Font,
 //----------------------------------------------------------------------------------
 
 /// Title Screen Initialization logic
-pub fn init(fx_coin: rl.Sound, font: rl.Font) Self {
+pub fn init(fx_coin: rl.Sound, font: rl.Font) TitleScreen {
     // TODO: Initialize TITLE screen variables here!
-    return Self{
+    return TitleScreen{
         .state = .unfinished,
         .fx_coin = fx_coin,
         .font = font,
@@ -57,13 +57,13 @@ pub fn init(fx_coin: rl.Sound, font: rl.Font) Self {
 }
 
 /// Title Screen Unload logic
-pub fn deinit(self: *Self) void {
+pub fn deinit(self: *TitleScreen) void {
     _ = self;
     // TODO: Unload TITLE screen variables here!
 }
 
 /// Title Screen Update logic
-pub fn update(self: *Self) void {
+pub fn update(self: *TitleScreen) void {
     // TODO: Update TITLE screen variables here!
 
     // Press enter or tap to change to gameplay screen
@@ -75,7 +75,7 @@ pub fn update(self: *Self) void {
 }
 
 /// Title Screen Draw logic
-pub fn draw(self: *const Self) void {
+pub fn draw(self: *const TitleScreen) void {
     // TODO: Draw TITLE screen here!
     rl.DrawRectangle(0, 0, screen_width, screen_height, rl.GREEN);
     const pos: rl.Vector2 = .{ .x = 20, .y = 10 };
@@ -84,6 +84,6 @@ pub fn draw(self: *const Self) void {
 }
 
 /// Title Screen should finish?
-pub fn getNextScreen(self: *const Self) ScreenState {
+pub fn getNextScreen(self: *const TitleScreen) ScreenState {
     return self.state;
 }

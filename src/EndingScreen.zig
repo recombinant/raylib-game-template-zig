@@ -31,7 +31,7 @@ const rl = @import("rl.zig").rl;
 const screen_width = @import("constants.zig").screen_width;
 const screen_height = @import("constants.zig").screen_height;
 
-const Self = @This();
+const EndingScreen = @This();
 
 const ScreenState = enum { unfinished, title };
 
@@ -47,9 +47,9 @@ font: rl.Font,
 //----------------------------------------------------------------------------------
 
 /// Ending Screen Initialization logic
-pub fn init(fx_coin: rl.Sound, font: rl.Font) Self {
+pub fn init(fx_coin: rl.Sound, font: rl.Font) EndingScreen {
     // TODO: Initialize ENDING screen variables here!
-    return Self{
+    return EndingScreen{
         .state = .unfinished,
         .fx_coin = fx_coin,
         .font = font,
@@ -57,13 +57,13 @@ pub fn init(fx_coin: rl.Sound, font: rl.Font) Self {
 }
 
 /// Ending Screen Unload logic
-pub fn deinit(self: *Self) void {
+pub fn deinit(self: *EndingScreen) void {
     _ = self;
     // TODO: Unload ENDING screen variables here!
 }
 
 /// Ending Screen Update logic
-pub fn update(self: *Self) void {
+pub fn update(self: *EndingScreen) void {
     // TODO: Update ENDING screen variables here!
 
     // Press enter or tap to return to TITLE screen
@@ -74,7 +74,7 @@ pub fn update(self: *Self) void {
 }
 
 /// Ending Screen Draw logic
-pub fn draw(self: *const Self) void {
+pub fn draw(self: *const EndingScreen) void {
     // TODO: Draw ENDING screen here!
     rl.DrawRectangle(0, 0, screen_width, screen_height, rl.BLUE);
 
@@ -84,6 +84,6 @@ pub fn draw(self: *const Self) void {
 }
 
 /// Ending Screen should finish?
-pub fn getNextScreen(self: *Self) ScreenState {
+pub fn getNextScreen(self: *EndingScreen) ScreenState {
     return self.state;
 }
