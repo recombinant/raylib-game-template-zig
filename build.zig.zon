@@ -1,8 +1,8 @@
 .{
-    .name = .raylib_game_template_main,
+    .name = .raylib_game_template,
     .version = "0.0.0",
-    .minimum_zig_version = "0.16.0",
-    .fingerprint = 0xcf3114f0bc328fed,
+    .minimum_zig_version = "0.17.0",
+    .fingerprint = 0x2d6cb1c03d4b4a40,
 
     // Using raylib the master branch...
 
