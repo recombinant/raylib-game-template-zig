@@ -1,11 +1,7 @@
-# zig build files Zig 0.16.0 and later
+# zig build files Zig 0.17.0 and later
 .zig-cache
 zig-pkg
 zig-out
-
-# raylib sources
-raylib
-raygui
 
 #
 .idea
