@@ -4,7 +4,7 @@ The code in this repository is a translation and refactoring of C source code fo
 
 https://github.com/raysan5/raylib-game-template
 
-The original code is _Copyright (c) 2014-2025 Ramon Santamaria_
+The original code is _Copyright (c) 2014-2026 Ramon Santamaria_
 
 For documentation refer to the repository above.
 
@@ -25,8 +25,8 @@ The original code is written in C. This code was manually translated to [zig](ht
 
 ## zig and raylib versions
 
-- `zig-0.15.2` (October 2025)
-- raylib dev (November 2025)
+- `zig-0.17.0` (October 2026)
+- raylib master branch (October 2026)
 
 Please don't be surprised if the project does not compile without tweaking - this is not set up for the unwary.
 

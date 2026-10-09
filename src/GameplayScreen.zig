@@ -26,7 +26,7 @@
 //    3. This notice may not be removed or altered from any source distribution.
 //
 // ----------------------------------------------------------------------------
-const rl = @import("rl.zig").rl;
+const rl = @import("raylib");
 
 const screen_width = @import("constants.zig").screen_width;
 const screen_height = @import("constants.zig").screen_height;

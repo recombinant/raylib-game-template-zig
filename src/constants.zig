@@ -1,7 +1,7 @@
 pub const screen_width = 800;
 pub const screen_height = 450;
 
-// const rl = @import("rl.zig").rl;
+// const rl = @import("raylib");
 
 // fn getScreenWidth() c_int {
 //     return if (rl.IsWindowFullscreen())
